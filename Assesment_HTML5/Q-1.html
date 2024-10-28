@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="icon" href="https://www.shutterstock.com/image-vector/hand-icon-vector-filled-flat-260nw-1555497167.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Student Registration Form</h2>
+    <div class="form-container">
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" pattern="[A-Za-z]{3,6}"
+                    placeholder="Enter your first name" required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" pattern="[A-Za-z]{3,6}"
+                    placeholder="Enter your last name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="it should contain @.." required>
+            </div>
+
+            <!-- Mobile -->
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="text" id="mobile" name="mobile" pattern="[0-9]{10}"
+                    placeholder="only 10 digits are allowed" required>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label class="g1">Gender:</label>
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female" required> Female
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date Of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" rows="10" name="address" placeholder="Enter your address" rows="3"
+                    required></textarea>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input class="city" type="text" id="city" name="city" required>
+            </div>
+
+            <!-- Area PIN -->
+            <div class="form-group">
+                <label for="area-pin">Area PIN:</label>
+                <input type="text" class="pin" id="area-pin" name="area-pin" required>
+            </div>
+
+            <!-- State -->
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" class="state" id="state" name="state" required>
+            </div>
+
+            <!-- Qualification -->
+            <div class="form-group">
+                <label for="qualification">Qualification:</label>
+                <select id="qualification" name="qualification" required>
+                    <option value="">Select Qualification</option>
+                    <option value="Bachelor">Bachelor's</option>
+                    <option value="Master">Master's</option>
+                    <option value="PhD">Ph.D.</option>
+                </select>
+            </div>
+
+            <!-- Specialization -->
+            <div class="form-group">
+                <label>Specialization:</label>
+                <span class="check-box">
+                    <input type="checkbox" name="specialization" value="Information Technology"> Information
+                    Technology<br>
+                    <input type="checkbox" name="specialization" value="Computer Science"> Computer Science<br>
+                    <input type="checkbox" name="specialization" value="Tele Communication"> Tele Communication <br>
+                    <input type="checkbox" name="specialization" value="Computer Architecture"> Computer
+                    Architecture<br>
+
+                </span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
