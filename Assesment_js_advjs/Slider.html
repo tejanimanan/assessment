@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slider</title>
+  <style>
+    .slider-container {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      margin: 40px auto;
+      border: 5px solid black;
+    }
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .thumbnails {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .thumbnail {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+    .thumbnail.active {
+      opacity: 1;
+    }
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+    .prev, .next {
+      position: absolute;
+      bottom: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      color: #333;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide active">
+        <img src="v1.png" alt="Image 1">
+      </div>
+      <div class="slide">
+        <img src="v2.png" alt="Image 2">
+      </div>
+      <div class="slide">
+        <img src="v3.png" alt="Image 3">
+      </div>
+      <div class="slide">
+        <img src="v4.png" alt="Image 3">
+      </div>
+      <div class="slide">
+        <img src="v5.png" alt="Image 3">
+      </div>
+      <div class="slide">
+        <img src="v6.jpg" alt="Image 3">
+      </div>
+      <div class="slide">
+        <img src="v7.jpg" alt="Image 3">
+      </div>
+      <div class="slide">
+        <img src="v8.png" alt="Image 3">
+      </div>
+      <div class="slide">
+        <img src="v9.png" alt="Image 3">
+      </div>
+    </div>
+    <div class="thumbnails">
+      <div class="prev">&#10094;</div>
+      <div class="thumbnail active">
+        <img src="v1.png" alt="Image 1 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v2.png" alt="Image 2 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v3.png" alt="Image 3 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v4.png" alt="Image 3 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v5.png" alt="Image 3 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v6.jpg" alt="Image 3 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v7.jpg" alt="Image 3 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v8.png" alt="Image 3 Thumbnail">
+      </div>
+      <div class="thumbnail">
+        <img src="v9.png" alt="Image 3 Thumbnail">
+      </div>
+      <div class="next">&#10095;</div>
+    </div>
+  </div>
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentSlideIndex = 0;
+    
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        currentSlideIndex = index;
+        updateSlider();
+      });
+    });
+    
+    prevButton.addEventListener('click', () => {
+      currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+    
+    nextButton.addEventListener('click', () => {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      updateSlider();
+    });
+    
+    function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                thumbnails[index].classList.remove('active');
+            });
+            slides[currentSlideIndex].classList.add('active');
+            thumbnails[currentSlideIndex].classList.add('active');
+        }
+        </script>
+</body>
+</html>
